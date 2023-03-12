@@ -1,4 +1,4 @@
-export default function Modal({ newUser, setNewUser }) {
+export default function Modal({ newUser, setNewUser, setNewUserData, addNewUserToState }) {
 	function handleSubmit(e) {
 		e.preventDefault()
 
@@ -22,7 +22,13 @@ export default function Modal({ newUser, setNewUser }) {
 			body: JSON.stringify(userInfo)
 		})
 			.then(res => res.json())
-			.then(data => data.success ? setNewUser(false) : undefined)
+			.then(data => {
+				if (data.success) {
+					setNewUser(false)
+					setNewUserData(userInfo)
+					addNewUserToState()
+				}
+			})
 	}
 
 	return (

@@ -12,24 +12,24 @@ export default function Users({ users }) {
 					<th>Website</th>
 				</tr>
 			</thead>
-			{
-				users.map((user, idx) => {
-					const { name, age, verified, email, phone, website } = user
-					return (
-						<tbody className="[&>tr>td]:text-center">
-							<tr>
-								<td>{idx+1}</td>
+			<tbody className="[&>tr>td]:text-center">
+				{
+					users.map((user, idx) => {
+						const { _id, name, age, verified, email, phone, website } = user
+						return (
+							<tr key={_id}>
+								<td>{idx + 1}</td>
 								<td>{name}</td>
 								<td>{age}</td>
-								<td>{verified.toString()}</td>
+								<td>{verified?.toString()}</td>
 								<td>{email}</td>
 								<td>{phone}</td>
 								<td>{website}</td>
 							</tr>
-						</tbody>
-					)
-				})
-			}
+						)
+					})
+				}
+			</tbody>
 		</table>
 	)
 }
