@@ -1,4 +1,4 @@
-export default function Modal({ newUser, setNewUser, setNewUserData, addNewUserToState, userData, users, setUsers }) {
+export default function Modal({ newUser, setNewUser, addNewUserToState, userData, users, setUsers }) {
 	const modify = userData._id ? true : false
 
 	function handleSubmit(e) {

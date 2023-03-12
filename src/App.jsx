@@ -5,7 +5,6 @@ import Users from "./components/Users/Users"
 function App() {
   const [newUser, setNewUser] = useState(false)
   const [users, setUsers] = useState([])
-  const [newUserData, setNewUserData] = useState({})
   const [loading, setLoading] = useState(true)
   const [userData, setUserData] = useState({})
 
@@ -41,7 +40,7 @@ function App() {
           :
           undefined
       }
-      <Modal newUser={newUser} setNewUser={setNewUser} setNewUserData={setNewUserData} addNewUserToState={addNewUserToState} userData={userData} users={users} setUsers={setUsers} />
+      <Modal newUser={newUser} setNewUser={setNewUser} addNewUserToState={addNewUserToState} userData={userData} users={users} setUsers={setUsers} />
     </div>
   )
 }
