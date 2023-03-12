@@ -17,7 +17,7 @@ export default function Modal({ newUser, setNewUser, addNewUserToState, userData
 		}
 
 		modify ?
-			fetch(`http://localhost:5000/user/${userData._id}`, {
+			fetch(`https://custom-api-server.vercel.app/user/${userData._id}`, {
 				method: 'PATCH',
 				headers: {
 					'content-type': 'application/json'
@@ -34,7 +34,7 @@ export default function Modal({ newUser, setNewUser, addNewUserToState, userData
 					}
 				})
 			:
-			fetch('http://localhost:5000/new-user', {
+			fetch('https://custom-api-server.vercel.app/new-user', {
 				method: 'POST',
 				headers: {
 					'content-type': 'application/json'

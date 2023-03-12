@@ -9,7 +9,7 @@ function App() {
   const [userData, setUserData] = useState({})
 
   useEffect(() => {
-    fetch('http://localhost:5000/all-user')
+    fetch('https://custom-api-server.vercel.app/all-user')
       .then(res => res.json())
       .then(data => {
         setUsers(data)
