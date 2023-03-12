@@ -18,9 +18,9 @@ function App() {
       })
   }, [])
 
-  function addNewUserToState() {
+  function addNewUserToState(user) {
     const newUsers = [...users]
-    newUsers.push(newUserData)
+    newUsers.push(user)
     setUsers(newUsers)
   }
 

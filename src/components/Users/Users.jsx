@@ -24,7 +24,7 @@ export default function Users({ users, setNewUser, setUserData }) {
 					users.map((user, idx) => {
 						const { _id, name, age, verified, email, phone, website } = user
 						return (
-							<tr key={_id}>
+							<tr key={idx}>
 								<td>{idx + 1}</td>
 								<td>{name}</td>
 								<td>{age}</td>

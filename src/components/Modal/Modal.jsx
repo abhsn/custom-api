@@ -45,8 +45,7 @@ export default function Modal({ newUser, setNewUser, setNewUserData, addNewUserT
 				.then(data => {
 					if (data.success) {
 						setNewUser(false)
-						setNewUserData(userInfo)
-						addNewUserToState()
+						addNewUserToState(userInfo)
 					}
 				})
 	}
