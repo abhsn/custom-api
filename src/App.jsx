@@ -1,31 +1,21 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Modal from "./components/Modal/Modal"
+import Users from "./components/Users/Users"
 
 function App() {
   const [newUser, setNewUser] = useState(false)
+  const [users, setUsers] = useState([])
+
+  useEffect(() => {
+    fetch('http://localhost:5000/all-user')
+    .then(res => res.json())
+    .then(data => setUsers(data))
+  }, [])
+
   return (
     <div className="w-11/12 mx-auto">
       <h3 className="text-center font-bold text-4xl my-4">User list</h3>
-      <table className="w-full border-collapse border-2 [&>thead>tr>th]:border-2 [&>tbody>tr>td]:border-2">
-        <thead>
-          <tr>
-            <th>Count</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Website</th>
-          </tr>
-        </thead>
-        <tbody className="[&>tr>td]:text-center">
-          <tr>
-            <td>1</td>
-            <td>Abid Hasan</td>
-            <td>ab1dh4san@gmail.com</td>
-            <td>+8801234567890</td>
-            <td>https://example.com</td>
-          </tr>
-        </tbody>
-      </table>
+      <Users users={users}/>
       {
         !newUser ?
           <button onClick={() => setNewUser(true)} className="bg-blue-500 px-4 py-2 my-4 rounded-md text-white">Add user</button>

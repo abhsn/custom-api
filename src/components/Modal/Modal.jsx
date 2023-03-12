@@ -7,6 +7,8 @@ export default function Modal({ newUser, setNewUser }) {
 
 		const userInfo = {
 			name: form.name.value,
+			age: form.age.value,
+			verified: form.verified.value === 'true' ? true : false,
 			email: form.email.value,
 			phone: form.phone.value,
 			website: form.website.value
@@ -20,7 +22,7 @@ export default function Modal({ newUser, setNewUser }) {
 			body: JSON.stringify(userInfo)
 		})
 			.then(res => res.json())
-			.then(data => console.log(data))
+			.then(data => data.success ? setNewUser(false) : undefined)
 	}
 
 	return (
@@ -29,6 +31,18 @@ export default function Modal({ newUser, setNewUser }) {
 				newUser ? <div className="fixed inset-0 bg-[#00000080] flex justify-center items-center">
 					<form onSubmit={handleSubmit} className="bg-white flex flex-col w-4/12 p-8 rounded-lg gap-4 [&>input]:rounded-md">
 						<input placeholder="Name" type="text" name="name" className="border-2 border-blue-500 focus:outline-none p-2" />
+						<input placeholder="Age" type="number" name="age" className="border-2 border-blue-500 focus:outline-none p-2" />
+						<div className="flex gap-4">
+							<span>Verified</span>
+							<div className="flex gap-2">
+								<input placeholder="Age" type="radio" name="verified" value="true" id="verified-true" />
+								<label htmlFor="verified-true">True</label>
+							</div>
+							<div className="flex gap-2">
+								<input placeholder="Age" type="radio" name="verified" value="false" id="verified-false" />
+								<label htmlFor="verified-fale">False</label>
+							</div>
+						</div>
 						<input placeholder="Email" type="email" name="email" className="border-2 border-blue-500 focus:outline-none p-2" />
 						<input placeholder="Phone" type="tel" name="phone" className="border-2 border-blue-500 focus:outline-none p-2" />
 						<input placeholder="Website" type="url" name="website" className="border-2 border-blue-500 focus:outline-none p-2" />
