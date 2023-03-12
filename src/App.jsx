@@ -1,4 +1,5 @@
 import { useState } from "react"
+import Modal from "./components/Modal/Modal"
 
 function App() {
   const [newUser, setNewUser] = useState(false)
@@ -29,8 +30,9 @@ function App() {
         !newUser ?
           <button onClick={() => setNewUser(true)} className="bg-blue-500 px-4 py-2 my-4 rounded-md text-white">Add user</button>
           :
-          <button onClick={() => setNewUser(false)} className="bg-red-500 px-4 py-2 my-4 rounded-md text-white">Cancel</button>
+          undefined
       }
+      <Modal newUser={newUser} setNewUser={setNewUser} />
     </div>
   )
 }
